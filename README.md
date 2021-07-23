@@ -1,0 +1,2 @@
+# denotest
+deno deploy test
