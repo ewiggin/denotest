@@ -7,6 +7,6 @@ addEventListener("fetch", (event) => {
 class TestController {
 
   hello(): Response {
-    return new Response('hello world martines', { status: 200, headers: 'content-type': 'text/plain' })
+    return new Response('hello world martines', { status: 200, headers: {'content-type': 'text/plain' }})
   }
 }
