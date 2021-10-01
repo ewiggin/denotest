@@ -19,7 +19,16 @@ class ApiController {
 }
 
 class ViewRender {
-  private engine: Handlebars = new Handlebars();
+  private engine: Handlebars = new Handlebars({
+    baseDir: "./views",
+    extname: ".hbs",
+    layoutsDir: "layouts/",
+    partialsDir: "partials/",
+    cachePartials: true,
+    defaultLayout: "main",
+    helpers: undefined,
+    compilerOptions: undefined,
+  });
   
   async render(view: string, context: Record<string, unknown>, layout: string) {
     return await this.engine.renderView(view, context, layout);
@@ -32,5 +41,5 @@ addEventListener("fetch", async (event) => {
   console.log(await api.viewData());
 });
 
-//console.log(await new ViewRender().render('index', { data: [{"resum":"4 places de Monitor de natació","data_pub":"2018-04-26T00:00:00.000","enlla":{"url":"http://cido.diba.cat/oposicions/7769693"},"codi_ens":"2500300000","nom_ens":"Ajuntament d'Agramunt","estat":"NO_VIGENT","latitud":"41.7870354","longitud":"1.0988124","geocoded":{"type":"Point","coordinates":[1.0988124,41.7870354]},":@computed_region_bh64_c7uy":"726",":@computed_region_wvic_k925":"17"}] }, 'main'));
-//console.log(await new ApiController().viewData());
+/* console.log(await new ViewRender().render('index', { data: [{"resum":"4 places de Monitor de natació","data_pub":"2018-04-26T00:00:00.000","enlla":{"url":"http://cido.diba.cat/oposicions/7769693"},"codi_ens":"2500300000","nom_ens":"Ajuntament d'Agramunt","estat":"NO_VIGENT","latitud":"41.7870354","longitud":"1.0988124","geocoded":{"type":"Point","coordinates":[1.0988124,41.7870354]},":@computed_region_bh64_c7uy":"726",":@computed_region_wvic_k925":"17"}] }, 'main'));
+console.log(await new ApiController().viewData()); */
