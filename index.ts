@@ -30,7 +30,7 @@ class ApiController {
 
 class ViewRender {
   private engine: Handlebars = new Handlebars({
-    baseDir: "./views",
+    baseDir: `${Deno.cwd()}/views`,
     extname: ".hbs",
     layoutsDir: "layouts/",
     partialsDir: "partials/",
